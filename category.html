@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categories</title>
+    <link rel="stylesheet" href="category.css">
+    <style>
+        /* Additional styles for the popular categories section */
+        .popular-categories {
+            padding: 20px 0;
+            margin-bottom: 30px;
+        }
+        
+        .popular-categories h2 {
+            text-align: center;
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #333;
+            position: relative;
+        }
+        
+        .popular-categories h2::after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            margin: 10px auto;
+        }
+        
+        .popular-tags {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .popular-tag {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .popular-tag:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+        }
+        
+        /* Enhanced zoom effect for category items */
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        
+        .category-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            height: 200px; /* Set a fixed height for consistency */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: flex-end;
+        }
+        
+        .category-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            z-index: 1;
+        }
+        
+        .category-item:hover {
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            z-index: 2;
+        }
+        
+        .category-item:hover::before {
+            background: rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Zoom effect */
+        .category-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.5s ease;
+            z-index: 0;
+        }
+        
+        .category-item:hover::after {
+            transform: scale(1.1);
+        }
+        
+        /* Apply the background image to both the item and the pseudo-element */
+        .category-item,
+        .category-item::after {
+            background-image: inherit;
+        }
+        
+        .category-label {
+            position: relative;
+            z-index: 3;
+            transition: all 0.3s ease;
+            color: white;
+            padding: 15px;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+            width: 100%;
+        }
+        
+        .category-item:hover .category-label {
+            transform: translateY(-5px);
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+        }
+        
+        .dark-theme .popular-categories h2 {
+            color: #f0f0f0;
+        }
+        
+        .dark-theme .popular-tag {
+            background: linear-gradient(135deg, #8a2be2 0%, #4b0082 100%);
+        }
+    </style>
+</head>
+<body class="light-theme">
+    <header class="header">
+        <div class="logo">
+            <img src="logo.jpg" alt="Logo">
+            <span class="wall">Wallpapers</span>
+        </div>
+        <nav class="nav">
+            <a href="#">Categories</a>
+            <a href="#">AI Generated</a>
+            <a href="#">
+                <img src="profile-icon.png" alt="Profile">
+            </a>
+            <div class="toggle-container">
+                <label class="toggle-switch">
+                    <input type="checkbox" id="themeToggle">
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </nav>
+    </header>
+    
+    <div class="popular-categories">
+        <h2>Popular Categories</h2>
+        <div class="popular-tags">
+            <a href="#" class="popular-tag">Animals</a>
+            <a href="#" class="popular-tag">Anime</a>
+            <a href="#" class="popular-tag">Car</a>
+            <a href="#" class="popular-tag">Food</a>
+        </div>
+    </div>
+    
+    <div class="categories-container">
+        <h1>All Categories</h1>
+        <div class="categories-grid">
+            <a href="#" class="category-item" style="background-image: url('abstract.jpg');">
+                <span class="category-label">ABSTRACT</span>
+            </a>
+            <a href="#" class="category-item" style="background-image: url('animals.jpg');">
+                <span class="category-label">ANIMALS</span>
+            </a>
+            <a href="#" class="category-item" style="background-image: url('anime.jpg');">
+                <span class="category-label">ANIME</span>
+            </a>
+            <a href="#" class="category-item" style="background-image: url('car.jpg');">
+                <span class="category-label">CAR</span>
+            </a>
+            <a href="#" class="category-item" style="background-image: url('celebration.jpg');">
+                <span class="category-label">CELEBRATION</span>
+            </a>
+            <a href="#" class="category-item" style="background-image: url('city.jpg');">
+                <span class="category-label">CITY</span>
+            </a>
+            <a href="#" class="category-item" style="background-image: url('fantasy.jpg');">
+                <span class="category-label">FANTASY</span>
+            </a>
+            <a href="#" class="category-item" style="background-image: url('flowers.jpg');">
+                <span class="category-label">FLOWERS</span>
+            </a>
+            <a href="#" class="category-item" style="background-image: url('food.jpg');">
+                <span class="category-label">FOOD</span>
+            </a>
+            <a href="#" class="category-item" style="background-image: url('funny.jpg');">
+                <span class="category-label">FUNNY</span>
+            </a>
+            <a href="#" class="category-item" style="background-image: url('life.jpg');">
+                <span class="category-label">LIFE</span>
+            </a>
+            <a href="#" class="category-item" style="background-image: url('military.jpg');">
+                <span class="category-label">MILITARY</span>
+            </a>
+            <a href="#" class="category-item" style="background-image: url('music.jpg');">
+                <span class="category-label">MUSIC</span>
+            </a>
+            <a href="#" class="category-item" style="background-image: url('nature.jpg');">
+                <span class="category-label">NATURE</span>
+            </a>
+            <a href="#" class="category-item" style="background-image: url('quotes.jpg');">
+                <span class="category-label">QUOTES</span>
+            </a>
+            <a href="#" class="category-item" style="background-image: url('romantic.jpg');">
+                <span class="category-label">ROMANTIC</span>
+            </a>
+            <a href="#" class="category-item" style="background-image: url('space.jpg');">
+                <span class="category-label">SPACE</span>
+            </a>
+            <a href="#" class="category-item" style="background-image: url('sport.jpg');">
+                <span class="category-label">SPORT</span>
+            </a>
+            <a href="#" class="category-item" style="background-image: url('technics.jpg');">
+                <span class="category-label">TECHNICS</span>
+            </a>
+        </div>
+    </div>
+    <script src="category.js"></script>
+</body>
+</html>
